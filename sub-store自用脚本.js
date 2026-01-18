@@ -1,6 +1,6 @@
 /**
- * Sub-Store 节点名精简脚本 (多国中英识别版)
- * 功能：国旗 + 中文名 + 编号(1,2,3) + 倍率(xN)
+ * Sub-Store 节点名精简脚本
+ * 功能：中英识别 + 旗帜转换 + 免费节点识别 + 编号(1,2,3)
  */
 
 function operator(proxies) {
@@ -15,7 +15,7 @@ function operator(proxies) {
     ['🇸🇬', '新加坡', /新加坡|Singapore|SG/i],
     ['🇮🇳', '印度', /印度|India|IN/i],
     ['🇹🇭', '泰国', /泰国|Thailand|TH/i],
-    ['🇦🇪', '迪拜', /迪拜|阿联酋|UAE|Dubai/i], // 新增迪拜
+    ['🇦🇪', '迪拜', /迪拜|阿联酋|UAE|Dubai/i],
     
     // 欧洲
     ['🇬🇧', '英国', /英国|United Kingdom|Britain|UK/i],
@@ -24,16 +24,17 @@ function operator(proxies) {
     ['🇳🇱', '荷兰', /荷兰|Netherlands|NL/i],
     ['🇮🇹', '意大利', /意大利|Italy|IT/i],
     ['🇪🇸', '西班牙', /西班牙|Spain|ES/i],
-    ['🇮🇪', '爱尔兰', /爱尔兰|Ireland|IE/i], // 新增爱尔兰
-    ['🇺🇦', '乌克兰', /乌克兰|Ukraine|UA/i],   // 新增乌克兰
+    ['🇮🇪', '爱尔兰', /爱尔兰|Ireland|IE/i],
+    ['🇺🇦', '乌克兰', /乌克兰|Ukraine|UA/i],
     ['🇷🇺', '俄罗斯', /俄罗斯|Russia|RU/i],
     ['🇹🇷', '土耳其', /土耳其|Turkey|TR/i],
     
-    // 美洲/大洋洲
+    // 美洲/大洋洲/南极洲
     ['🇺🇸', '美国', /美国|United States|America|US/i],
     ['🇨🇦', '加拿大', /加拿大|Canada|CA/i],
     ['🇦🇺', '澳大利亚', /澳大利亚|Australia|AU/i],
-    ['🇧🇷', '巴西', /巴西|Brazil|BR/i]
+    ['🇧🇷', '巴西', /巴西|Brazil|BR/i],
+    ['🇦🇶', '南极洲', /南极洲|Antarctica|AQ/i] // 新增南极洲
   ]
 
   const rateRegex = /(\d+(\.\d+)?)\s*(?:x|×|倍)|(?:x|×)\s*(\d+(\.\d+)?)/i
@@ -41,7 +42,7 @@ function operator(proxies) {
   let processed = proxies.map(p => {
     let raw = p.name || ''
     
-    // 1. 匹配国家 (通过正则识别中英文及缩写)
+    // 1. 匹配国家
     let matched = null
     for (const [flag, zh, regex] of countryData) {
       if (regex.test(raw)) {
@@ -50,13 +51,18 @@ function operator(proxies) {
       }
     }
     
-    if (!matched) return null // 未匹配到预设国家的节点将不显示
+    if (!matched) return null 
 
     // 2. 提取倍率
     let rate = 1
-    const m = raw.match(rateRegex)
-    if (m) {
-      rate = parseFloat(m[1] || m[3])
+    // 如果包含“免费”，强制设定倍率为 0
+    if (raw.includes('免费')) {
+      rate = 0
+    } else {
+      const m = raw.match(rateRegex)
+      if (m) {
+        rate = parseFloat(m[1] || m[3])
+      }
     }
 
     return {
@@ -66,7 +72,7 @@ function operator(proxies) {
     }
   }).filter(Boolean)
 
-  // 3. 自动编号逻辑 (1, 2, 3...)
+  // 3. 自动编号逻辑
   const countMap = {}
   processed.forEach(p => {
     const base = p.__base
@@ -74,8 +80,9 @@ function operator(proxies) {
     p.__idx = countMap[base].toString()
   })
 
-  // 4. 组装最终名称：去空格，一倍不显示
+  // 4. 组装最终名称并去空格
   return processed.map(p => {
+    // 只要倍率不是 1（包括 0），就显示 xN
     const rateStr = p.__rate !== 1 ? `x${p.__rate}` : ''
     p.name = `${p.__base}${p.__idx}${rateStr}`.replace(/\s+/g, '')
     
