@@ -14,7 +14,7 @@ function operator(proxies) {
     { flag: '🇼🇸', zh: '台湾', reg: /Taiwan|台湾|\bTW\b|🇹🇼/i },
     { flag: '🇯🇵', zh: '日本', reg: /Japan|日本|\bJP\b/i },
     { flag: '🇰🇷', 'zh': '韩国', reg: /Korea|韩国|\bKR\b/i },
-    { flag: '🇸🇬', 'zh': '新加坡', reg: /Singapore|新加坡|\bSG\b/i },
+    { flag: '🇸🇬', 'zh': '新加坡', reg: /Singapore|新加坡|狮城|\bSG\b/i },
     { flag: '🇦🇪', 'zh': '迪拜', reg: /Dubai|迪拜|阿联酋|UAE/i },
     { flag: '🇫🇷', 'zh': '法国', reg: /France|法国|\bFR\b/i },
     { flag: '🇩🇪', 'zh': '德国', reg: /Germany|德国|\bDE\b/i },
