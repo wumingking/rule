@@ -1,11 +1,43 @@
-#emby服代理
 
 
-#终点站
-DOMAIN-SUFFIX,emby.wtf
-
-#SNTP Media Lite
-DOMAIN-SUFFIX,cn2gias.uk
-
-#YounoPlus
+# YounoPlus
 DOMAIN,plus.younoyes.com
+# Youno
+DOMAIN,emby.younoyes.com
+# Hohai
+DOMAIN,emby.hohai.eu.org
+# 叶子网盘
+DOMAIN,wp.lyezi.cc
+# 飞了个喵
+DOMAIN,gy.meowfly.de
+# 小鸡
+DOMAIN,emby.sadchicktv.com
+# 小鸡推流
+DOMAIN,stream-1.sadchicktv.com
+# 这只猫
+DOMAIN,vipdc.covh.eu.org
+# 这只猫推流
+DOMAIN,nl.ftp2.eu.org
+# 乐观主线路
+DOMAIN,emby.dijia.de
+# 乐观cf优选
+DOMAIN,yxrkemby.haosao.de
+# 守候
+DOMAIN,lite.cn2gias.uk
+# 非越
+# DOMAIN,cf.sfcj.org
+# 非越推流
+# DOMAIN,media.emby.pro
+# 茶百道主线路
+# DOMAIN,emby.teawaya.com
+# 茶百道备用线路
+# DOMAIN,emby.7s.l.cd
+# 茶百道
+#DOMAIN,emby.chapanda.site
+
+
+
+# 憨豆
+DOMAIN-SUFFIX,handoumedia.top
+# 月饼
+DOMAIN-SUFFIX,emby.my
