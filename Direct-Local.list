@@ -1,26 +1,59 @@
-#emby服直连
 
 
+# ===== 原 domain_set（精确匹配）=====
+# 哇哇
+DOMAIN,emby.wawajiao.cc.cd
+# 予初1
+DOMAIN,aaa.yusen6.ccwu.cc
+# 予初2
+DOMAIN,emby.yusen.us.ci
+# 予初3
+DOMAIN,13.yusen.cyou
+# 予初Pro 1
+DOMAIN,yuchu.yusen.cc.cd
+# 予初Pro 2
+DOMAIN,9527.yusen.cyou
+# 乐蛙
+DOMAIN,emby.taotu.ink
+# 二楼
+DOMAIN,emby.huangmin.cc.cd
+# 二楼精品线路
+DOMAIN,2l.585820.xyz
+# 宸澄
+DOMAIN,embycc.wybcs.work
+# 非越
+DOMAIN,cf.sfcj.org
+# 非越推流
+DOMAIN,media.emby.pro
+# 茶百道主线路
+DOMAIN,emby.teawaya.com
+# 茶百道备用线路
+DOMAIN,emby.7s.l.cd
 
-#YounoPlus
+# ===== 其他需直连的服务 =====
+# 微软邮件服务
+DOMAIN,m.hotmail.com
+# L站
+DOMAIN,invite.linuxdo.org
+# Su中转站
+DOMAIN,superapi.buzz
+# TMDB API
+DOMAIN,api.themoviedb.org
+# TMDB API 新地址
+DOMAIN,api.tmdb.org
+# tmdb 图片 cf 反代
+DOMAIN,yydswz.dpdns.org
+# scripting 远程推送服务
+DOMAIN,push.scripting.fun
+
+# ===== 原 domain_suffix_set（后缀匹配）=====
+# YounoPlus
 DOMAIN-SUFFIX,younoyes.com
+# 西瓜
+DOMAIN-SUFFIX,yuntv.de
+# lcsignx
+DOMAIN-SUFFIX,lcsignx.com
+# rex
+DOMAIN-SUFFIX,rexnow.tv
 
-#UHD
-DOMAIN-SUFFIX,uhdnow.com
 
-#Zox
-DOMAIN-SUFFIX,3767483.xyz
-
-#KFC
-DOMAIN-SUFFIX,kfc.v50.su
-DOMAIN-SUFFIX,emby.v50.su
-DOMAIN-SUFFIX,cdn.v50.su
-
-#STAR
-DOMAIN-SUFFIX,staryuki.me
-
-#Shrek
-DOMAIN,public.shrekmedia.org
-
-#SNTP Media Lite
-DOMAIN,xn--3prx41a.xn--pss436eejf.xyz
