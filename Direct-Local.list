@@ -25,10 +25,11 @@ DOMAIN,embycc.wybcs.work
 DOMAIN,cf.sfcj.org
 # 非越推流
 DOMAIN,media.emby.pro
-# 茶百道主线路
-DOMAIN,emby.teawaya.com
 # 茶百道备用线路
-DOMAIN,emby.7s.l.cd
+DOMAIN,emby.teawaya.com
+# 茶百道主线路
+DOMAIN,emby.chapanda.site
+
 
 # ===== 其他需直连的服务 =====
 # 微软邮件服务
